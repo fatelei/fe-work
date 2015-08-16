@@ -13,14 +13,93 @@
 			<div class="news-desciption">
 				<p>这是一段新闻描述</p>
 			</div>
-			<div class="news-chart">
-				<div>
-				</div>
-				<div id="chart">
-					
-				</div>
+			<div id="news-chart">
+				<ul id="choice">
+					<li><input type="checkbox" id="situation-bad">严重污染</li>
+					<li><input type="checkbox" id="situation-common">中等污染</li>
+					<li><input type="checkbox" id="situation-light">轻度污染</li>
+					<li><input type="checkbox" id="situation-good">良好</li>
+				</ul>
+				<ul id="air-chart">
+					<li>
+						<span>一月：</span><span name="bad" id="metric-bad" style="width: 50px;"></span><span name="common" id="metric-common" style="width: 30px;"></span><span name="light" id="metric-light" style="width: 40px;"></span><span name="good" id="metric-good" style="width: 220px;"></span>
+					</li>
+					<li>
+						<span>二月：</span><span name="bad" id="metric-bad" style="width: 20px;"></span><span name="light" id="metric-light" style="width: 20px;"></span><span name="good" id="metric-good" style="width: 300px;"></span>
+					</li>
+					<li>
+						<span>三月：</span><span name="bad" id="metric-bad" style="width: 40px;"></span><span name="common" id="metric-common" style="width: 30px;"></span><span name="light" id="metric-light" style="width: 70px;"></span><span name="good" id="metric-good" style="width: 200px;"></span>
+					</li>
+				</ul>
 			</div>
 		</section>
 	</div>
+	<script>
+		var bads = document.getElementsByName("bad");
+		var commons = document.getElementsByName("common");
+		var lights = document.getElementsByName("light");
+		var goods = document.getElementsByName("good");
+		var choice = document.getElementById('choice');
+
+		choice.addEventListener('click', function (e) {
+			var target = e.target;
+
+			if (target.children.length !== 0) {
+				return;
+			}
+			var _id = target.id.split("-")[1];
+
+			switch (_id) {
+				case "bad":
+					for (var i = 0; i < bads.length; i++) {
+						var ele = bads[i];
+						var display = ele.style.display;
+
+						if (display !== "none") {
+							ele.style.display = "none";
+						} else {
+							ele.style.display = "inline-block";
+						}
+					}
+					break;
+				case "common":
+				 	for (var i = 0; i < commons.length; i++) {
+						var ele = commons[i];
+						var display = ele.style.display;
+
+						if (display !== "none") {
+							ele.style.display = "none";
+						} else {
+							ele.style.display = "inline-block";
+						}
+					}
+					break;
+				case "light":
+					for (var i = 0; i < lights.length; i++) {
+						var ele = lights[i];
+						var display = ele.style.display;
+
+						if (display !== "none") {
+							ele.style.display = "none";
+						} else {
+							ele.style.display = "inline-block";
+						}
+					}
+					break;
+				case "good":
+					for (var i = 0; i < goods.length; i++) {
+						var ele = goods[i];
+						var display = ele.style.display;
+
+						if (display !== "none") {
+							ele.style.display = "none";
+						} else {
+							ele.style.display = "inline-block";
+						}
+					}
+					break;
+			}
+		});
+	</script>
 </body>
 </html>
